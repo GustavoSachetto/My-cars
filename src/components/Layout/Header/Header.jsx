@@ -56,7 +56,6 @@ export default function Header() {
           </ul>
           <ul className="navbar-nav">
             <LinkItem to="/about">Sobre</LinkItem>
-            <LinkItem to="/favorites">Favoritos</LinkItem>
             <LinkItem to="/login" className="nav-link fw-medium text-light border border-white mx-2 px-4 rounded-5">Login</LinkItem>
           </ul>
         </div>

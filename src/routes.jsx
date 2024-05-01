@@ -23,7 +23,6 @@ export default function AppRoutes() {
           <Route index element={<Home />} />
           <Route path="*" element={<PageNotFound />} />
           <Route path="/about" element={<Home />} />
-          <Route path="/favorites" element={<Home />} />
           <Route path="/login" element={<Login />} />
 
           {/* Rotas do veículo  */}
