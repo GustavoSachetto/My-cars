@@ -1,0 +1,19 @@
+.card {
+  width: 310px;
+  height: 420px; 
+  cursor: pointer;
+  transition: 250ms;
+  box-shadow: 1px 4px 6px rgba(0, 0, 0, 0.055);
+}
+
+.card:hover {
+  box-shadow: 1px 4px 6px rgba(0, 0, 0, 0.171);
+}
+
+.card_img {
+  height: 210px;
+}
+
+.card_li {
+  font-size: 15.5px;
+}
