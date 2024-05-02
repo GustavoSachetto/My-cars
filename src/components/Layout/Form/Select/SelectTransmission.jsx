@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react"
-import api from "../../../services/api"
+import api from "../../../../services/api"
 
-export default function SelectFuel({name, ...rest}) {
+export default function SelectTransmission({name, ...rest}) {
   const [loading, setLoading] = useState(true)
-  const [fuels, setFuels] = useState([])
+  const [transmissions, setTransmissions] = useState([])
 
   useEffect(() => {
-    api.get("/fuels").then((response) => {
-      setFuels(response.data)
+    api.get("/transmissions").then((response) => {
+      setTransmissions(response.data)
       setLoading(false)
     })
   }, [])
@@ -19,9 +19,9 @@ export default function SelectFuel({name, ...rest}) {
       className="form-select"
       {...rest}
     >
-      <option value="">Todos</option>
+      <option value="">Todas</option>
       {!loading && (
-          Array.isArray(fuels) && fuels?.map((value) => (
+          Array.isArray(transmissions) && transmissions?.map((value) => (
             <option value={value.id} key={value.id}>{value.name}</option>
           )
         )

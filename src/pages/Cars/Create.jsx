@@ -1,8 +1,8 @@
 import { useCallback, useState } from "react"
-import SelectFuel from "../../components/Layout/Form/SelectFuel"
-import SelectBrand from "../../components/Layout/Form/SelectBrand"
-import SelectCarmodel from "../../components/Layout/Form/SelectCarmodel"
-import SelectTransmission from "../../components/Layout/Form/SelectTransmission"
+import SelectFuel from "../../components/Layout/Form/Select/SelectFuel"
+import SelectBrand from "../../components/Layout/Form/Select/SelectBrand"
+import SelectCarmodel from "../../components/Layout/Form/Select/SelectCarmodel"
+import SelectTransmission from "../../components/Layout/Form/Select/SelectTransmission"
 import Checkbox from "../../components/Layout/Form/Checkbox"
 import api from "../../services/api"
 
@@ -139,7 +139,7 @@ export default function CreateCars() {
             <label htmlFor="model_id" className="form-label">Modelo</label>
             <SelectCarmodel 
               name="model_id" 
-              brand={values.brand} 
+              brand={values.brand_id} 
               onChange={onChange} 
               required 
             />

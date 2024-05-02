@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import api from "../../../services/api"
+import api from "../../../../services/api"
 
 export default function SelectBrand({name, ...rest}) {
   const [loading, setLoading] = useState(true)

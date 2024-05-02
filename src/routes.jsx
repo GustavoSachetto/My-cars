@@ -7,8 +7,12 @@ import Home from './pages/Home'
 import PageNotFound from './pages/PageNotFound'
 import Login from './pages/Login/index'
 import BrandCreate from './pages/Brands/Create'
+import BrandEdit from './pages/Brands/Edit'
+import BrandDelete from './pages/Brands/Delete'
 import TransmissionCreate from './pages/Transmissions/Create'
+import TransmissionEdit from './pages/Transmissions/Edit'
 import FuelCreate from './pages/Fuels/Create'
+import FuelEdit from './pages/Fuels/Edit'
 import CarmodelCreate from './pages/Carmodels/Create'
 import Cars from './pages/Cars/index'
 import CarCreate from './pages/Cars/Create'
@@ -40,12 +44,12 @@ export default function AppRoutes() {
           } />
           <Route path="/brands/edit" element={
             <Private>
-              <Home />
+              <BrandEdit />
             </Private>
           } />
           <Route path="/brands/delete" element={
             <Private>
-              <Home />
+              <BrandDelete />
             </Private>
           } />
 
@@ -74,7 +78,7 @@ export default function AppRoutes() {
           } />
           <Route path="/transmissions/edit" element={
             <Private>
-              <Home />
+              <TransmissionEdit />
             </Private>
           } />
           <Route path="/transmissions/delete" element={
@@ -91,7 +95,7 @@ export default function AppRoutes() {
           } />
           <Route path="/fuels/edit" element={
             <Private>
-              <Home />
+              <FuelEdit />
             </Private>
           } />
           <Route path="/fuels/delete" element={

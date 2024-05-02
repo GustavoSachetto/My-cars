@@ -1,7 +1,7 @@
-import SelectFuel from "../../../../components/Layout/Form/SelectFuel"
-import SelectBrand from "../../../../components/Layout/Form/SelectBrand"
-import SelectCarmodel from "../../../../components/Layout/Form/SelectCarmodel"
-import SelectTransmission from "../../../../components/Layout/Form/SelectTransmission"
+import SelectFuel from "../../../../components/Layout/Form/Select/SelectFuel"
+import SelectBrand from "../../../../components/Layout/Form/Select/SelectBrand"
+import SelectCarmodel from "../../../../components/Layout/Form/Select/SelectCarmodel"
+import SelectTransmission from "../../../../components/Layout/Form/Select/SelectTransmission"
 
 export default function Search({ values, onChange, onSubmit }) {
   return (
@@ -41,7 +41,7 @@ export default function Search({ values, onChange, onSubmit }) {
           <label htmlFor="carmodel" className="form-label">Modelo</label>
           <SelectCarmodel 
             name="carmodel" 
-            brand={values.brand_id} 
+            brand={values.brand} 
             onChange={onChange} 
           />
         </div>

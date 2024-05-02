@@ -1,13 +1,14 @@
 import { useCallback, useState, useContext } from "react"
 import SelectBrand from "../../components/Layout/Form/Select/SelectBrand"
 import StorageContext from "../../components/Store/Context"
+import ModalConfirm from "../../components/Layout/Form/Modal/Confirm"
 import api from "../../services/api"
 
 function initialStatus() {
   return {check: false, message: '', error: false}
 }
 
-export default function Create() {
+export default function Delete() {
   const [values, setValues] = useState({})
   const [status, setStatus] = useState(initialStatus)
   const { user } = useContext(StorageContext)
@@ -22,12 +23,12 @@ export default function Create() {
   }
 
   const handleSubmit = useCallback(() => {
-    api.post("/carmodels", values, { 
+    api.delete(`/brands/${values.brand_id}`, { 
       headers: {
         'Authorization': `Bearer ${user.token}`
       }
     }).then(() => {
-      setStatus({check: true, message: 'Modelo cadastrado com sucesso.'})
+      setStatus({check: true, message: 'Marca deletada com sucesso.'})
     }).catch((response) => {
       setStatus({check: true, message: response.response.data.error, error: true})
     })
@@ -35,14 +36,13 @@ export default function Create() {
 
   function onSubmit(e) {
     e.preventDefault()
-    console.log(values);
     handleSubmit()
   }
 
   return (
     <section className="d-flex mt-2 p-5 flex-wrap justify-content-center">
       <form className="card px-3 py-4 rounded-4 border-0 shadow-sm" style={{width: "800px"}} onSubmit={(e) => onSubmit(e)}>
-        <h2 className="card-title md-3">Adicionar modelo</h2>
+        <h2 className="card-title md-3">Excluir marca</h2>
         {status.check == true && (
           <span 
             className={status.error == true ? "alert alert-danger" : "alert alert-success"} 
@@ -51,30 +51,20 @@ export default function Create() {
             {status.message}
           </span>
         )}
-        <fieldset className="row g-3 mb-3">
-        <div className="col">
+        <fieldset className="mb-3">
           <label htmlFor="brand_id" className="form-label">Marca</label>
           <SelectBrand 
             name="brand_id" 
             onChange={onChange} 
             required
           />
-        </div>
-        <div className="col">
-          <label htmlFor="name" className="form-label">Nome</label>
-          <input 
-            type="text" 
-            name="name" 
-            minLength={2}
-            maxLength={50}
-            placeholder="Prisma"
-            className="form-control"
-            onChange={onChange}
-            required 
-          />
-        </div>
         </fieldset>
-        <button type="submit" className="btn btn-success">Cadastrar</button>
+
+        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#confirm">
+          Deletar
+        </button>
+
+        <ModalConfirm />
       </form>
     </section>
   )
