@@ -1,5 +1,5 @@
 import { useState } from "react"
-import Cars from "./components/Card/Cars"
+import Cars from "./components/Card/Cars/Cars"
 import FormSearch from "./components/Form/Search"
 
 export default () => {

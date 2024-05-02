@@ -1,0 +1,10 @@
+.carousel {
+  width: 70%;
+  max-width: 820px;
+}
+
+.img {
+  width: 100%;
+  max-width: 900px;
+  object-fit: cover;
+}

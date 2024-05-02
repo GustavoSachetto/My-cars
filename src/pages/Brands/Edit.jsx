@@ -51,27 +51,27 @@ export default function Edit() {
           </span>
         )}
         <fieldset className="row g-3 mb-3">
-        <div className="col">
-          <label htmlFor="brand_id" className="form-label">Marca</label>
-          <SelectBrand 
-            name="brand_id" 
-            onChange={onChange} 
-            required
-          />
-        </div>
-        <div className="col">
-          <label htmlFor="name" className="form-label">Novo nome</label>
-          <input 
-            type="text" 
-            name="name" 
-            minLength={3}
-            maxLength={25}
-            placeholder="Chevrolet"
-            className="form-control"
-            required 
-            onChange={onChange}
-          />
-        </div>
+          <div className="col">
+            <label htmlFor="brand_id" className="form-label">Marca</label>
+            <SelectBrand 
+              name="brand_id" 
+              onChange={onChange} 
+              required
+            />
+          </div>
+          <div className="col">
+            <label htmlFor="name" className="form-label">Novo nome</label>
+            <input 
+              type="text" 
+              name="name" 
+              minLength={3}
+              maxLength={25}
+              placeholder="Chevrolet"
+              className="form-control"
+              required 
+              onChange={onChange}
+            />
+          </div>
         </fieldset>
         <button type="submit" className="btn btn-warning">Editar</button>
       </form>

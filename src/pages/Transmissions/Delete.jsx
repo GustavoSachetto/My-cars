@@ -1,5 +1,5 @@
 import { useCallback, useState, useContext } from "react"
-import SelectBrand from "../../components/Layout/Form/Select/SelectBrand"
+import SelectTransmission from "../../components/Layout/Form/Select/SelectTransmission"
 import StorageContext from "../../components/Store/Context"
 import ModalConfirm from "../../components/Layout/Form/Modal/Confirm"
 import api from "../../services/api"
@@ -23,12 +23,12 @@ export default function Delete() {
   }
 
   const handleSubmit = useCallback(() => {
-    api.delete(`/brands/${values.brand_id}`, { 
+    api.delete(`/transmissions/${values.transmission_id}`, { 
       headers: {
         'Authorization': `Bearer ${user.token}`
       }
     }).then(() => {
-      setStatus({check: true, message: 'Marca deletada com sucesso.'})
+      setStatus({check: true, message: 'Transmissão deletada com sucesso.'})
     }).catch((response) => {
       setStatus({check: true, message: response.response.data.error, error: true})
     })
@@ -42,7 +42,7 @@ export default function Delete() {
   return (
     <section className="d-flex mt-2 p-5 flex-wrap justify-content-center">
       <form className="card px-3 py-4 rounded-4 border-0 shadow-sm" style={{width: "800px"}} onSubmit={(e) => onSubmit(e)}>
-        <h2 className="card-title md-3">Excluir marca</h2>
+        <h2 className="card-title md-3">Excluir transmissão</h2>
         {status.check == true && (
           <span 
             className={status.error == true ? "alert alert-danger" : "alert alert-success"} 
@@ -52,9 +52,9 @@ export default function Delete() {
           </span>
         )}
         <fieldset className="mb-3">
-          <label htmlFor="brand_id" className="form-label">Marca</label>
-          <SelectBrand 
-            name="brand_id" 
+          <label htmlFor="transmission_id" className="form-label">Transmissão</label>
+          <SelectTransmission 
+            name="transmission_id" 
             onChange={onChange} 
             required
           />

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
-import api from "../../../../services/api"
+import api from "../../../../../services/api"
 import styles from "./Cars.module.css"
 import QueryString from "qs"
 
@@ -51,7 +51,7 @@ export default function Cars({ filters }) {
                 className={"card-img-top object-fit-cover rounded-top-4 shadow-sm "+`${styles.card_img}`}
                 alt={car.version} 
               />
-              <div className="card-body">
+              <div className="card-body d-flex flex-column justify-content-between">
                 <h5 className="card-title fw-semibold">
                   {car.brand_name +" "+ car.model_name}
                 </h5>

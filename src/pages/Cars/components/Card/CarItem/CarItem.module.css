@@ -1,0 +1,11 @@
+.car_item {
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+  width: 95%;
+  max-width: 1195px;
+}
+
+.card_information {
+  margin: 40px 0 0 30px;
+}

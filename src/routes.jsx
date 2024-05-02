@@ -6,15 +6,25 @@ import DefaultPage from './components/DefaultPage'
 import Home from './pages/Home'
 import PageNotFound from './pages/PageNotFound'
 import Login from './pages/Login/index'
+
 import BrandCreate from './pages/Brands/Create'
 import BrandEdit from './pages/Brands/Edit'
 import BrandDelete from './pages/Brands/Delete'
+
 import TransmissionCreate from './pages/Transmissions/Create'
 import TransmissionEdit from './pages/Transmissions/Edit'
+import TransmissionDelete from './pages/Transmissions/Delete'
+
 import FuelCreate from './pages/Fuels/Create'
 import FuelEdit from './pages/Fuels/Edit'
+import FuelDelete from './pages/Fuels/Delete'
+
 import CarmodelCreate from './pages/Carmodels/Create'
+import CarmodelEdit from './pages/Carmodels/Edit'
+import CarmodelDelete from './pages/Carmodels/Delete'
+
 import Cars from './pages/Cars/index'
+import CarItem from './pages/Cars/Item'
 import CarCreate from './pages/Cars/Create'
 
 export default function AppRoutes() {   
@@ -31,7 +41,7 @@ export default function AppRoutes() {
 
           {/* Rotas do veículo  */}
           <Route path="/cars" element={<Cars />} />
-          <Route path="/cars/:id" element={<Home />} />
+          <Route path="/cars/:id" element={<CarItem />} />
           <Route path="/cars/new" element={<CarCreate />} />
           <Route path="/cars/edit" element={<Home />} />
           <Route path="/cars/delete" element={<Home />} />
@@ -61,12 +71,12 @@ export default function AppRoutes() {
           } />
           <Route path="/carmodels/edit" element={
             <Private>
-              <Home />
+              <CarmodelEdit />
             </Private>
           } />
           <Route path="/carmodels/delete" element={
             <Private>
-              <Home />
+              <CarmodelDelete />
             </Private>
           } />
 
@@ -83,7 +93,7 @@ export default function AppRoutes() {
           } />
           <Route path="/transmissions/delete" element={
             <Private>
-              <Home />
+              <TransmissionDelete />
             </Private>
           } />
 
@@ -100,7 +110,7 @@ export default function AppRoutes() {
           } />
           <Route path="/fuels/delete" element={
             <Private>
-              <Home />
+              <FuelDelete />
             </Private>
           } />
         </Route>

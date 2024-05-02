@@ -1,5 +1,6 @@
 import { useCallback, useState, useContext } from "react"
-import SelectTransmission from "../../components/Layout/Form/Select/SelectTransmission"
+import SelectCarmodel from "../../components/Layout/Form/Select/SelectCarmodel"
+import SelectBrand from "../../components/Layout/Form/Select/SelectBrand"
 import StorageContext from "../../components/Store/Context"
 import api from "../../services/api"
 
@@ -22,12 +23,12 @@ export default function Edit() {
   }
 
   const handleSubmit = useCallback(() => {
-    api.put(`/transmissions/${values.transmission_id}`, {name: values.name}, { 
+    api.put(`/carmodels/${values.carmodel_id}`, {name: values.name, brand_id: values.brand_id}, { 
       headers: {
         'Authorization': `Bearer ${user.token}`
       }
     }).then(() => {
-      setStatus({check: true, message: 'Transmissão editado com sucesso.'})
+      setStatus({check: true, message: 'Modelo editado com sucesso.'})
     }).catch((response) => {
       setStatus({check: true, message: response.response.data.error, error: true})
     })
@@ -41,7 +42,7 @@ export default function Edit() {
   return (
     <section className="d-flex mt-2 p-5 flex-wrap justify-content-center">
       <form className="card px-3 py-4 rounded-4 border-0 shadow-sm" style={{width: "800px"}} onSubmit={(e) => onSubmit(e)}>
-        <h2 className="card-title md-3">Alterar transmissão</h2>
+        <h2 className="card-title md-3">Alterar modelo</h2>
         {status.check == true && (
           <span 
             className={status.error == true ? "alert alert-danger" : "alert alert-success"} 
@@ -50,13 +51,35 @@ export default function Edit() {
             {status.message}
           </span>
         )}
+
         <fieldset className="row g-3 mb-3">
           <div className="col">
-            <label htmlFor="transmission_id" className="form-label">Transmissão</label>
-            <SelectTransmission 
-              name="transmission_id" 
+            <label htmlFor="brand" className="form-label">Marca</label>
+            <SelectBrand 
+              name="brand" 
               onChange={onChange} 
               required
+            />
+          </div>
+          <div className="col">
+            <label htmlFor="carmodel_id" className="form-label">Modelo</label>
+            <SelectCarmodel 
+              name="carmodel_id" 
+              brand={values.brand}
+              onChange={onChange} 
+              required
+            />
+          </div>
+        </fieldset>
+
+        <hr />
+
+        <fieldset className="row g-3 mb-3">
+          <div className="col">
+            <label htmlFor="brand_id" className="form-label">Nova marca</label>
+            <SelectBrand 
+              name="brand_id" 
+              onChange={onChange} 
             />
           </div>
           <div className="col">
@@ -64,15 +87,15 @@ export default function Edit() {
             <input 
               type="text" 
               name="name" 
-              minLength={3}
-              maxLength={22}
-              placeholder="Manual"
+              minLength={2}
+              maxLength={50}
+              placeholder="Prisma"
               className="form-control"
-              required 
               onChange={onChange}
             />
           </div>
         </fieldset>
+
         <button type="submit" className="btn btn-warning">Editar</button>
       </form>
     </section>

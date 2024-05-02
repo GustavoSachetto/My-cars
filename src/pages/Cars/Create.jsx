@@ -223,7 +223,7 @@ export default function CreateCars() {
                 name="automatic_pilot" 
                 onChange={onChange} 
               />
-              <label htmlFor="automatic_pilot" className="form-check-label">Piloto automatico</label>
+              <label htmlFor="automatic_pilot" className="form-check-label">Piloto automático</label>
             </div>
             <div className="form-check form-switch mb-2">
               <Checkbox 
@@ -237,7 +237,7 @@ export default function CreateCars() {
                 name="automatic_glass" 
                 onChange={onChange}
               />
-              <label htmlFor="automatic_glass" className="form-check-label">Vidro automatico</label>
+              <label htmlFor="automatic_glass" className="form-check-label">Vidro automático</label>
             </div>
             <div className="form-check form-switch mb-2">
               <Checkbox 

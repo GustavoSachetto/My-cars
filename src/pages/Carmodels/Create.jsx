@@ -35,7 +35,6 @@ export default function Create() {
 
   function onSubmit(e) {
     e.preventDefault()
-    console.log(values);
     handleSubmit()
   }
 
@@ -52,27 +51,27 @@ export default function Create() {
           </span>
         )}
         <fieldset className="row g-3 mb-3">
-        <div className="col">
-          <label htmlFor="brand_id" className="form-label">Marca</label>
-          <SelectBrand 
-            name="brand_id" 
-            onChange={onChange} 
-            required
-          />
-        </div>
-        <div className="col">
-          <label htmlFor="name" className="form-label">Nome</label>
-          <input 
-            type="text" 
-            name="name" 
-            minLength={2}
-            maxLength={50}
-            placeholder="Prisma"
-            className="form-control"
-            onChange={onChange}
-            required 
-          />
-        </div>
+          <div className="col">
+            <label htmlFor="brand_id" className="form-label">Marca</label>
+            <SelectBrand 
+              name="brand_id" 
+              onChange={onChange} 
+              required
+            />
+          </div>
+          <div className="col">
+            <label htmlFor="name" className="form-label">Nome</label>
+            <input 
+              type="text" 
+              name="name" 
+              minLength={2}
+              maxLength={50}
+              placeholder="Prisma"
+              className="form-control"
+              onChange={onChange}
+              required 
+            />
+          </div>
         </fieldset>
         <button type="submit" className="btn btn-success">Cadastrar</button>
       </form>
