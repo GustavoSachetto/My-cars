@@ -21,9 +21,6 @@ export default function Header() {
             <Dropdown label="Veículo">
               <DropdownItem to="/cars">Buscar</DropdownItem>
               <DropdownItem to="/cars/new">Cadastrar</DropdownItem>
-              <DropdownItem to="/cars/edit">Editar</DropdownItem>
-              <DropdownLine />
-              <DropdownItem to="/cars/delete">Deletar</DropdownItem>
             </Dropdown>
 
             <Dropdown label="Marca">
@@ -55,7 +52,7 @@ export default function Header() {
             </Dropdown>
           </ul>
           <ul className="navbar-nav">
-            <LinkItem to="/about">Sobre</LinkItem>
+            <LinkItem to="/admin" className="nav-link text-light">Admin</LinkItem>
             <LinkItem to="/login" className="nav-link fw-medium text-light border border-white mx-2 px-4 rounded-5">Login</LinkItem>
           </ul>
         </div>
