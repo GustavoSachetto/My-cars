@@ -21,7 +21,7 @@ export default function SelectBrand({name, ...rest}) {
     >
       <option value="">Todas</option>
       {!loading && (
-          Array.isArray(brands) && brands?.map((value) => (
+          Array.isArray(brands) && brands.length > 0 && brands.map((value) => (
             <option value={value.id} key={value.id}>{value.name}</option>
           )
         )

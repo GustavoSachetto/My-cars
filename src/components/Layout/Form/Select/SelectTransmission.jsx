@@ -21,7 +21,7 @@ export default function SelectTransmission({name, ...rest}) {
     >
       <option value="">Todas</option>
       {!loading && (
-          Array.isArray(transmissions) && transmissions?.map((value) => (
+          Array.isArray(transmissions) && transmissions.length > 0 && transmissions.map((value) => (
             <option value={value.id} key={value.id}>{value.name}</option>
           )
         )

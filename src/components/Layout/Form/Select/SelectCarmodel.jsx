@@ -5,8 +5,8 @@ export default function SelectCarmodel({name, brand, ...rest}) {
   const [loading, setLoading] = useState(true)
   const [carmodels, setCarmodels] = useState([])
 
-  useEffect(() => {
-    const route = brand != null ? `/carmodels/brand/${brand}` : "/carmodels"
+  useEffect(() => {   
+    const route = brand == null || brand == undefined ? "/carmodels" : `/carmodels/brand/${brand}`
 
     api.get(route).then((response) => {
       setCarmodels(response.data)
@@ -23,7 +23,7 @@ export default function SelectCarmodel({name, brand, ...rest}) {
     >
       <option value="">Todos</option>
       {!loading && (
-          Array.isArray(carmodels) && carmodels?.map((value) => (
+          Array.isArray(carmodels) && carmodels.length > 0 && carmodels.map((value) => (
             <option value={value.id} key={value.id}>{value.name}</option>
           )
         )

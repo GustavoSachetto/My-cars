@@ -13,7 +13,7 @@ function initialStatus() {
 export default function CreateCars() {
   const [values, setValues] = useState({})
   const [status, setStatus] = useState(initialStatus)
-  
+
   function onChange(event) {
     const { name, type, checked, value } = event.target
 
@@ -139,7 +139,7 @@ export default function CreateCars() {
             <label htmlFor="model_id" className="form-label">Modelo</label>
             <SelectCarmodel 
               name="model_id" 
-              brand={values.brand_id} 
+              brand={values.brand_id ?? null} 
               onChange={onChange} 
               required 
             />

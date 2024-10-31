@@ -9,7 +9,7 @@ export default function SelectFuel({name, ...rest}) {
     api.get("/fuels").then((response) => {
       setFuels(response.data)
       setLoading(false)
-    })
+    })  
   }, [])
 
   return (
@@ -21,7 +21,7 @@ export default function SelectFuel({name, ...rest}) {
     >
       <option value="">Todos</option>
       {!loading && (
-          Array.isArray(fuels) && fuels?.map((value) => (
+          Array.isArray(fuels) && fuels.length > 0 && fuels.map((value) => (
             <option value={value.id} key={value.id}>{value.name}</option>
           )
         )
