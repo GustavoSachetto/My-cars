@@ -6,6 +6,7 @@ import DefaultPage from './components/DefaultPage'
 import Home from './pages/Home'
 import PageNotFound from './pages/PageNotFound'
 import Login from './pages/Login/index'
+import LoginCreate from './pages/Login/Create'
 import Admin from './pages/Admin/index'
 
 import BrandCreate from './pages/Brands/Create'
@@ -39,6 +40,7 @@ export default function AppRoutes() {
           <Route path="*" element={<PageNotFound />} />
           <Route path="/admin" element={<Admin />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/login/new" element={<LoginCreate />} />
 
           {/* Rotas do veículo  */}
           <Route path="/cars" element={<Cars />} />

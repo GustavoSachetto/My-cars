@@ -1,6 +1,7 @@
 import { FaEye, FaEyeSlash } from "react-icons/fa6"
 import { useCallback, useState, useContext } from "react"
 import StoreContext from "../../../components/Store/Context"
+import { Link } from "react-router-dom"
 import api from "../../../services/api"
 
 function initialUserState() {
@@ -76,7 +77,7 @@ export default function Login() {
           type="email" 
           name="email" 
           className="form-control"
-          placeholder="exemple@email.com" 
+          placeholder="example@email.com" 
           onChange={onChange}
         />
       </div>
@@ -106,7 +107,12 @@ export default function Login() {
         />
         <label className="form-check-label" htmlFor="checkbox">Permanecer conectado</label>
       </div>
-      <button type="submit" className="btn btn-primary">Enviar</button>
+      <button type="submit" className="btn btn-primary mb-2">Enviar</button>
+      <hr />
+      <div>
+        <span>Não possui conta? </span>
+        <Link to="/login/new">Cadastrar-se</Link>
+      </div>
     </form>
   )
 }
