@@ -31,7 +31,7 @@ Bem-vindos ao My-cars! Um sistema de gestão sobre uma API, na qual o objetivo d
 Principais comandos para executar o projeto na máquina local:
 
 ```
-npm install
+npm install &&
 npm run dev
 ```
 
